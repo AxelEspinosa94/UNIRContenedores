@@ -1,7 +1,9 @@
 # Etapa de compilación
 FROM golang:1.20-alpine AS builder
 WORKDIR /app
-COPY main.go .
+COPY go.mod . 
+COPY main.go . 
+RUN go mod download # Descargamos las dependencias
 RUN go build -o myapp
 
 # Etapa final
