@@ -5,6 +5,6 @@ RUN javac App.java
 
 FROM openjdk:17
 WORKDIR /app
-COPY --from=builder /app/App.class .
+COPY --from=builder /app/*.class .
 EXPOSE 5000
 CMD ["java", "App"]
